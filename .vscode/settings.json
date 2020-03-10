@@ -1,0 +1,6 @@
+{
+  // Svelte 구성 요소에 .html을 사용하지 않는 한 적절한 파일 확장자를 html 언어와 연결하도록 files.associations를 구성해야합니다. 예를 들어 .svelte를 연결하려면 settings.json에 넣으십시오.
+  //   "files.associations": {
+  //     "*.svelte": "html"
+  //   },
+}

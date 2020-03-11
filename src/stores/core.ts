@@ -1,0 +1,60 @@
+import { writable } from 'svelte/store';
+
+export type AuthMode = 'REGISTER' | 'LOGIN';
+export type CurrentUser = {
+  id: string;
+  username: string;
+  profile: {
+    id: string;
+    thumbnail: string | null;
+    displayName: string;
+  };
+  email: string;
+};
+
+
+interface CoreState {
+    layer: boolean;
+    auth: {
+      visible: boolean;
+      mode: AuthMode;
+    };
+    user: CurrentUser | null;
+    popup: {
+      title: string | undefined;
+      message: string;
+      visible: boolean;
+    };
+}
+
+const initialState: CoreState = {
+  layer: false,
+  auth: {
+    visible: false,
+    mode: 'LOGIN',
+  },
+  user: null,
+  popup: {
+    visible: false,
+    title: '',
+    message: '',
+  },
+};
+
+function coreState() {
+  const { update, subscribe } = writable(initialState);
+  return {
+    subscribe,
+    showAuthModal: (mode: AuthMode) => update((state) => ({
+      ...state,
+      layer: true,
+      auth: {
+        mode,
+        visible: true,
+      },
+    })),
+  };
+}
+
+const core = coreState();
+export default core;

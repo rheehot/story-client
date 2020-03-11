@@ -28,7 +28,7 @@
   }
 </style>
 
-<script lang="typescript">
+<script>
   import createRouter from '@spaceavocado/svelte-router';
   import RouterView from '@spaceavocado/svelte-router/component/view';
   import HomePage from './pages/home/HomePage.svelte';
@@ -44,6 +44,4 @@
   });
 </script>
 
-<div>
-  <RouterView />
-</div>
+<RouterView />

@@ -16,6 +16,7 @@
       "src/svelte.d.ts",
       "./node_modules/@pyoner/svelte-types"
     ],
+    "module": "esnext",
     "diagnostics": true,
     "importHelpers": true,
     "allowJs": true,

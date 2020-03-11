@@ -10,7 +10,5 @@
 
 <!-- markup (zero or more items) goes here -->
 <HomeTemplate>
-  <div slot="children">
-    <HomeHeader />
-  </div>
+  <HomeHeader />
 </HomeTemplate>

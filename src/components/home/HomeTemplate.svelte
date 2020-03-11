@@ -7,7 +7,7 @@
 </script>
 
 <div class="HomeTemplate">
-  <slot name="children">
+  <slot>
     <!-- optional fallback -->
   </slot>
 </div>

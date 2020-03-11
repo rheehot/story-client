@@ -4,6 +4,11 @@
     width: 1728px;
     margin-left: auto;
     margin-right: auto;
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   @media (max-width: 1919px) {
@@ -36,10 +41,6 @@
     }
   }
 </style>
-
-<script>
-  // your script goes here
-</script>
 
 <div class="Responsive">
   <slot>

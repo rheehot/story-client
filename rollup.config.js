@@ -1,9 +1,9 @@
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import svelteSVG from "rollup-plugin-svelte-svg";
+import svelteSVG from 'rollup-plugin-svelte-svg';
 import livereload from 'rollup-plugin-livereload';
-import typescript from "rollup-plugin-typescript2";
+import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import { preprocess, createEnv, readConfigFile } from '@pyoner/svelte-ts-preprocess';
 
@@ -48,7 +48,9 @@ export default {
       dedupe: ['svelte'],
     }),
     // TODO SSR
-    svelteSVG(),
+    svelteSVG({
+      stringify: true,
+    }),
     commonjs(),
     typescript(),
 

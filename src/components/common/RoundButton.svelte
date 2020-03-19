@@ -13,6 +13,7 @@
     padding-right: 1rem;
     font-size: 1rem;
     border-radius: 1rem;
+    margin: 0px;
 
     background: #343a40;
     color: white;

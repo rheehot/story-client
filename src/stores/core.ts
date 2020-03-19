@@ -12,19 +12,18 @@ export type CurrentUser = {
   email: string;
 };
 
-
 interface CoreState {
-    layer: boolean;
-    auth: {
-      visible: boolean;
-      mode: AuthMode;
-    };
-    user: CurrentUser | null;
-    popup: {
-      title: string | undefined;
-      message: string;
-      visible: boolean;
-    };
+  layer: boolean;
+  auth: {
+    visible: boolean;
+    mode: AuthMode;
+  };
+  user: CurrentUser | null;
+  popup: {
+    title: string | undefined;
+    message: string;
+    visible: boolean;
+  };
 }
 
 const initialState: CoreState = {
@@ -41,18 +40,26 @@ const initialState: CoreState = {
   },
 };
 
+// example
+// export const double = derived(count, ($count, set) => {
+//   fetch(`https://jsonplaceholder.typicode.com/todos/${$count}`)
+//     .then(response => response.json())
+//     .then(json => set(json.title));
+// });
+
 function coreState() {
   const { update, subscribe } = writable(initialState);
   return {
     subscribe,
-    showAuthModal: (mode: AuthMode) => update((state) => ({
-      ...state,
-      layer: true,
-      auth: {
-        mode,
-        visible: true,
-      },
-    })),
+    showAuthModal: (mode: AuthMode) =>
+      update(state => ({
+        ...state,
+        layer: true,
+        auth: {
+          mode,
+          visible: true,
+        },
+      })),
   };
 }
 

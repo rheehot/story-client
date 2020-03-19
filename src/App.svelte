@@ -32,6 +32,7 @@
   import createRouter from '@spaceavocado/svelte-router';
   import RouterView from '@spaceavocado/svelte-router/component/view';
   import HomePage from './pages/home/HomePage.svelte';
+  import Core from './containers/base/Core.svelte';
 
   createRouter({
     routes: [
@@ -45,3 +46,4 @@
 </script>
 
 <RouterView />
+<Core />

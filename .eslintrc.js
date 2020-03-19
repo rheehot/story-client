@@ -39,5 +39,7 @@ module.exports = {
     'import/no-unresolved': 0,
     'import/extensions': 0,
     'svelte/parse-error': 0,
+    'implicit-arrow-linebreak': 0,
+    'arrow-parens': 0,
   },
 };

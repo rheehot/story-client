@@ -51,6 +51,15 @@ function coreState() {
   const { update, subscribe } = writable(initialState);
   return {
     subscribe,
+    closeAuthModal: () =>
+      update(state => ({
+        ...state,
+        layer: false,
+        auth: {
+          mode: 'LOGIN',
+          visible: false,
+        },
+      })),
     showAuthModal: (mode: AuthMode) =>
       update(state => ({
         ...state,

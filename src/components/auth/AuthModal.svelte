@@ -43,7 +43,7 @@
   }
 
   .White_Block {
-    flex: 1;
+    flex: 1 1 0%;
     background: white;
     padding: 1.5rem;
     display: flex;
@@ -52,12 +52,16 @@
 
   .Exit_Wrapper {
     display: flex;
+    -moz-box-pack: end;
     justify-content: flex-end;
-    width: 25px;
-    height: 25px;
-    color: #868e96;
+    color: rgb(134, 142, 150);
     margin-bottom: 2.25rem;
     cursor: pointer;
+  }
+
+  .Exit_Wrapper .icon {
+    width: 25px;
+    height: 25px;
   }
 
   .Block_Content {
@@ -112,11 +116,14 @@
 </style>
 
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, createEventDispatcher } from 'svelte';
   import CloseIcon from 'svelte-icons/md/MdClose.svelte';
   import UndrawJoyride from '../../statics/svg/undraw_joyride_hnno.svg';
   // props
   export let visible;
+
+  const dispatch = createEventDispatcher();
+
   let closed = true;
   onMount(() => {
     let timeoutId = null;
@@ -133,6 +140,10 @@
       }
     };
   });
+
+  const onCloseAction = () => {
+    dispatch('close');
+  };
 </script>
 
 {#if visible && closed}
@@ -146,7 +157,9 @@
       </div>
       <div class="White_Block">
         <div class="Exit_Wrapper">
-          <CloseIcon />
+          <div class="icon" on:click="{onCloseAction}">
+            <CloseIcon />
+          </div>
         </div>
         <div class="Block_Content">
           <slot>

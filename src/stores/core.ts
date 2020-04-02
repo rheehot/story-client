@@ -69,6 +69,14 @@ function coreState() {
           visible: true,
         },
       })),
+    changeAuthModalMode: (nextMode: AuthMode) =>
+      update(state => ({
+        ...state,
+        auth: {
+          mode: nextMode,
+          visible: state.auth.visible,
+        },
+      })),
   };
 }
 

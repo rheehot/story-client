@@ -53,11 +53,14 @@
 </style>
 
 <script>
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
   export let mode = '';
   export let email = '';
 </script>
 
-<form class="AuthEmailForm">
+<form class="AuthEmailForm" on:submit|preventDefault>
   <input tabIndex="{2}" value="{email}" placeholder="이메일을 입력하세요." on:keyup />
   <button tabIndex="{3}">{mode === 'REGISTER' ? '회원가입' : '로그인'}</button>
 </form>

@@ -35,7 +35,7 @@
 </style>
 
 <script>
-  import RouterLink from '@spaceavocado/svelte-router/component/link';
+  import { link } from 'svelte-spa-router';
   import HomeResponsive from './HomeResposive.svelte';
   import RoundButton from '../common/RoundButton.svelte';
 
@@ -47,6 +47,8 @@
   const onLoginClick = () => {
     core.showAuthModal('LOGIN');
   };
+
+  const goSearch = () => {};
 </script>
 
 <div class="HomeHeader">
@@ -55,9 +57,9 @@
     {#if !$core.user}
       <div class="Header_Right">
         <div class="Search_Button">
-          <RouterLink to="/search">
+          <a href="/search" use:link>
             <Search2 width="17" height="17" viewBox="0 0 17 17" />
-          </RouterLink>
+          </a>
         </div>
         <RoundButton on:dispatch="{onLoginClick}">로그인</RoundButton>
       </div>

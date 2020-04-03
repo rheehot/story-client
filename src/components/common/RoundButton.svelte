@@ -30,7 +30,7 @@
 
 <script>
   import { createEventDispatcher } from 'svelte';
-  import { router } from '@spaceavocado/svelte-router';
+  import { push } from 'svelte-spa-router';
 
   export const to = '';
   const dispatch = createEventDispatcher();
@@ -40,7 +40,7 @@
   };
 
   const onRouteClick = () => {
-    $router.push(to);
+    push(to);
   };
 </script>
 
